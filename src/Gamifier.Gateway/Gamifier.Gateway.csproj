@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <IncludeHttpRuleProtos>true</IncludeHttpRuleProtos>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Grpc.AspNetCore" Version="2.59.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Grpc.JsonTranscoding" Version="8.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Grpc.Swagger" Version="0.8.0" />
+        <PackageReference Include="Microsoft.Orleans.Client" Version="7.2.4" />
+        <PackageReference Include="Microsoft.Orleans.Persistence.Memory" Version="7.2.4" />
+        <PackageReference Include="Microsoft.Orleans.Streaming" Version="7.2.4" />
+        <PackageReference Include="Orleans.Providers.MongoDB" Version="7.6.0" />
+        <PackageReference Include="Orleans.Streaming.Grains" Version="7.2.110" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
+      <Protobuf Include="..\..\Protos\gamifier\comm\publisher.proto" GrpcServices="Server">
+        <Link>Protos\gamifier\comm\publisher.proto</Link>
+      </Protobuf>
+      <Protobuf Include="..\..\Protos\greet.proto" GrpcServices="Server">
+        <Link>Protos\greet.proto</Link>
+      </Protobuf>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Gamifier.GrainInterfaces\Gamifier.GrainInterfaces.csproj" />
+      <ProjectReference Include="..\Gamifier.Hangman.Core\Gamifier.Hangman.Core.csproj" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,16 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "Gamifier.Comm";
+
+import "google/protobuf/empty.proto";
+import "gamifier/comm/event.proto";
+package gamifier.comm;
+
+service Publisher {
+    // Publishes an event to the event bus
+    rpc PublishEvent(Event) returns (google.protobuf.Empty) {}
+    // subscribes to events, receiving an infinity stream of events
+    rpc Subscribe(google.protobuf.Empty) returns (stream Event) {}
+}
+
+

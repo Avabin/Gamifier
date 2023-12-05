@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0" />
+      <PackageReference Include="Microsoft.Orleans.Sdk" Version="7.2.4" />
+      <PackageReference Include="Microsoft.Orleans.Streaming" Version="7.2.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Gamifier.GrainInterfaces\Gamifier.GrainInterfaces.csproj" />
+      <ProjectReference Include="..\Gamifier.Hangman.Core\Gamifier.Hangman.Core.csproj" />
+    </ItemGroup>
+
+</Project>
